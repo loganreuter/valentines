@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines Card</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/onload.css">
+    <link rel="stylesheet" href="css/card.css">
+</head>
+<body>
+    <div class="wrapper" id="screen">
+        <div class="onload-text-wrapper">
+            <h1 class="onload-text">
+                Tap the Screen to Begin
+            </h1>
+        </div>
+        <div class="answer-yes-text-wrapper">
+            <h1 class="answer-text">
+                POGGERS
+            </h1>
+        </div>
+        <div class="answer-no-text-wrapper">
+            <h1 class="answer-text">
+                LAME
+            </h1>
+        </div>
+        
+        <img id="confetti" src="assets/confetti.gif" alt="confetti">
+        <div class="card-wrapper" id="card">
+            <div class="card-top">
+                <svg class="hole" height="100" width="100">
+                    <circle cx="50" cy="50" r="40"/>
+                </svg>
+                <svg class="hole" height="100" width="100">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+                <svg class="hole" height="100" width="100">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+                <div class="text-wrapper">
+                    K so I may be cheesy but fon-due you want to be my Valentines?
+                </div>
+            </div>
+            <div class="card-bottom">
+                <svg class="hole" height="100" width="100">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+                <div class="answer-wrapper" id="yes">
+                    <span><span id="yes-span" class="underline"></span> YES</span>
+                </div>
+                <div class="answer-wrapper" id="no">
+                    <span>
+                        <span class="underline" id="no-span"></span> NO!
+                    </span>
+                </div>
+                <svg class="hole" height="100" width="100">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+                <svg class="hole" height="100" width="100">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script>
+        const screen = document.getElementById("screen");
+        const card = document.getElementById("card");
+        const yes = document.getElementById("yes");
+        const no = document.getElementById("no");
+        let res = false;
+
+        screen.addEventListener("click", (e) => {
+            if(!screen.classList.contains("active")){
+                screen.classList.add("active")
+            }
+        })
+
+        card.addEventListener("click", (e) => {
+            if (!card.classList.contains("active")) {
+                card.classList.add("active")
+            }
+        })
+
+        yes.addEventListener("click", (e) => {
+            if(!res){
+                res = true
+                screen.classList.add("yes")
+                document.getElementById("yes-span").innerHTML = '&#10003';
+            }
+        })
+        no.addEventListener("click", (e) => {
+            if(!res){
+               location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+        })
+    </script>
+</body>
+</html>

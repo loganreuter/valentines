@@ -1,0 +1,120 @@
+:root{
+    --card-width: 20rem;
+    --card-height: 10rem;
+    --bg: #fff4b9;
+    --circles: #726000;
+}
+
+#screen:not(.active) .card-wrapper{
+    display: none;
+}
+
+#screen.active .card-wrapper{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-top, .card-bottom{
+    position: relative;
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: var(--bg);
+    /* border: 1px solid #000; */
+    box-sizing: border-box;
+    transform-origin: bottom;
+    transition: transform 1s ease-out;
+    overflow: hidden;
+}
+.card-top{
+    z-index: 1;
+}
+.card-bottom{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    font-size: 20px;
+}
+
+.card-top::after{
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: var(--bg);
+    z-index: 2;
+    /* border: 1px solid #000; */
+    transition: opacity 750ms 250ms ease-out;
+}
+
+#card:not(.active) .card-top{
+    transform: rotateX(-180deg);
+}
+#card.active .card-top::after{
+    opacity: 0;
+}
+#card.active .card-top{
+    font-size: 22px;
+}
+.text-wrapper{
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.answer-wrapper{
+    /* width: 3em; */
+    text-align: right;
+}
+.answer-wrapper:hover{
+    cursor: pointer;
+}
+.underline{
+    content: "";
+    float: left;
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    margin-right: 1em;
+    border-bottom: 2px solid #000;
+}
+.hole{
+    position: absolute;
+    fill: var(--circles);
+    /* z-index: -1; */
+}
+.card-top .hole:nth-child(1){
+    top: -50px;
+    left: 100px;
+}
+.card-top .hole:nth-child(2){
+    top: 80px;
+    left: -20px;
+}
+.card-top .hole:nth-child(3) {
+    bottom: 0px;
+    right: -70px;
+}
+.card-bottom .hole:nth-child(1){
+    top: -80px;
+    left: -20px;
+}
+.card-bottom .hole:nth-child(4){
+    right: 20px;
+    bottom: 30px;
+}
+.card-bottom .hole:nth-child(5) {
+    left: -20px;
+    bottom: -60px;
+}

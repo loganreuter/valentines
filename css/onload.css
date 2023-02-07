@@ -1,0 +1,56 @@
+#screen.active .onload-text-wrapper{
+    display: none;
+}
+.onload-text-wrapper{
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+.onload-text{
+    width: fit-content;
+    animation: BlinkingText 1.5s infinite ease-in-out;
+}
+
+#screen:not(.yes) .answer-yes-text-wrapper, #screen:not(.no) .answer-no-text-wrapper{
+    display: none;
+    
+}
+#screen.yes .answer-yes-text-wrapper{
+    box-sizing: border-box;
+    text-align: center;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    z-index: 5;
+}
+.answer-text{
+    width: fit-content;
+    font-size: 80px;
+}
+#screen:not(.yes) #confetti{
+    display: none;
+}
+#confetti{
+    width: 100%;
+    height: 100%;
+}
+
+
+@keyframes BlinkingText {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
